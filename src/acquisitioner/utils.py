@@ -97,11 +97,18 @@ def process_data_to_new_format():
 		data_as_str = ET.tostring(new_xml).decode('utf-8')
 		f.write(data_as_str)
 
+def extract_categories():
+	et = ET.parse(settings.MEDIA_ROOT+'/data/f2.html')
+	root = et.getroot()
+
+
+
 def process():
 	check_if_directory_exists()
 	download_webpage()
 	extract_tabelar_data()
 	process_data_to_new_format()
+	extract_categories()
 
 
 if __name__ == '__main__':
