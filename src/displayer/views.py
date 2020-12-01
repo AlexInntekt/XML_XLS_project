@@ -5,22 +5,13 @@ from .utils import xsd_data
 
 from django.views.generic import TemplateView
 from django.views import View
+from django.shortcuts import render
 
 
 class Tools(View):
 
 	def get(self, request):
 
-		xsd_data()
+		data_to_display = xsd_data()
 
-		html = """
-
-		<html><body>
-
-		hey 
-
-		</body></html>
-
-		"""
-
-		return HttpResponse(html)
+		return render(request, 'display.html', {'data':data_to_display})
