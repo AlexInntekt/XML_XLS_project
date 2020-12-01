@@ -79,6 +79,9 @@ def process_data_to_new_format():
 				web_based_n = ET.SubElement(node, 'web_based')
 				web_based_n.text = random.choice(['web','desktop'])
 
+				type_n = ET.SubElement(node, 'type')
+				type_n.text = random.choice(['teaching','learning'])
+
 				free_n = ET.SubElement(node, 'free')
 				free_n.text = random.choice(['free','costs money'])
 

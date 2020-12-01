@@ -26,6 +26,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <th>Url</th>
         <th>Category</th>
         <th>Web based / Desktop</th>
+        <th>Learning / teaching specific </th>
         <th>Free</th>
       </tr>
     </thead>
@@ -36,6 +37,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <td><xsl:value-of select="url"/></td>
         <td><xsl:value-of select="category"/></td>
         <td><xsl:value-of select="web_based"/></td>
+        <td><xsl:value-of select="type"/></td>
         <td><xsl:value-of select="free"/></td>
       </tr>
     </tbody>
