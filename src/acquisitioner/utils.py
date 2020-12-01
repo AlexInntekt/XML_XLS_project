@@ -1,6 +1,7 @@
 import re
 import requests
 import os
+import random
 
 import xml.etree.ElementTree as ET
 
@@ -74,6 +75,12 @@ def process_data_to_new_format():
 
 				url_n = ET.SubElement(node, 'url')
 				url_n.text = url
+
+				web_based_n = ET.SubElement(node, 'web_based')
+				web_based_n.text = random.choice(['web','desktop'])
+
+				free_n = ET.SubElement(node, 'free')
+				free_n.text = random.choice(['free','costs money'])
 
 			except IndexError as e:
 				pass
