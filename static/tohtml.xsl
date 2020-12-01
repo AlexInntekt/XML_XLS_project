@@ -19,7 +19,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <p>Las asta asa ca poate vrem sa scriem ceva AICI :)))</p>  
   <input class="form-control" id="myInput" type="text" placeholder="Search.."/>
   <br/>          
-  <table class="table table-dark table-hover table-bordered">
+  <table class="table table-bordered">
     <thead>
       <tr>
         <th>Name</th>
@@ -52,9 +52,29 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
           </a> 
 
         </td>
+
         <td><xsl:value-of select="category"/></td>
+
         <td><xsl:value-of select="web_based"/></td>
-        <td><xsl:value-of select="type"/></td>
+
+
+        <td>
+
+          <xsl:if test="type='learning'">
+            <p style="color:green"> 
+              <xsl:value-of select="type"/> 
+            </p>
+          </xsl:if>
+
+          <xsl:if test="type='teaching'">
+            <p style="color:yellow"> 
+              <xsl:value-of select="type"/>
+            </p>
+          </xsl:if>
+
+        </td>
+
+
         <td><xsl:value-of select="free"/></td>
       </tr>
     </tbody>

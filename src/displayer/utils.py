@@ -22,9 +22,12 @@ def xsd_data():
 def detail_view_querry(temp_id):
 
 	xml  = settings.MEDIA_ROOT+'/data/f2.xml'
+	xsl = settings.STATIC_ROOT+'/detail_tohtml.xsl'
+
 	xpath_querry = "/tools/tool[@temp_id='{}']".format(temp_id)
 	tree = etree.parse(xml)
 	node = tree.xpath(xpath_querry)[0]
-	res = etree.tostring(node).decode('utf-8')
-
-	return res
+	node_as_string = etree.tostring(node).decode('utf-8')
+	res = transform(node_as_string)
+	print(res)
+	return node_as_string
