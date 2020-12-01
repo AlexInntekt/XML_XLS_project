@@ -28,6 +28,7 @@ def detail_view_querry(temp_id):
 	tree = etree.parse(xml)
 	node = tree.xpath(xpath_querry)[0]
 	node_as_string = etree.tostring(node).decode('utf-8')
-	res = transform(node_as_string)
-	print(res)
+	# transform = etree.XSLT(xslt)
+	# res = transform(node_as_string)
+	print(node_as_string)
 	return node_as_string
