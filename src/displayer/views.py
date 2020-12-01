@@ -13,9 +13,13 @@ from django.shortcuts import render
 
 class Tools(View):
 
-	def get(self, request):
+	def get(self, request, **kwargs):
 
-		data_to_display = xsd_data()
+		if 'category' in kwargs:
+			category = kwargs['category']
+			data_to_display = xsd_data(category)
+		else:
+			data_to_display = xsd_data(None)
 
 		return render(request, 'display.html', {'data':data_to_display})
 

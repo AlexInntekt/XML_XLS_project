@@ -1,15 +1,32 @@
 import lxml.etree as etree
+import xml.etree.ElementTree as ET
 
 from django.conf import settings
 
 
-def xsd_data():
+def xsd_data(category):
 	xml  = settings.MEDIA_ROOT+'/data/f2.xml'
 	xsl = settings.STATIC_ROOT+'/tohtml.xsl'
-	# with open(settings.MEDIA_ROOT+'/data/f2.xml', 'r') as f:
-	# 	xml_data = f.read()
 
 	dom = etree.parse(xml)
+
+	if category:
+		category = category.replace("'","")
+		xpath_querry = "/tools/tool[category='{}']".format(category)
+		nodes = dom.xpath(xpath_querry)
+
+		new_xml = ET.Element('tools')
+
+		#combine all nodes fetched with xpath
+		for node in nodes:
+			n = etree.tostring(node).decode('utf-8')
+
+			n = ET.fromstring(n)
+			new_xml.append(n)
+
+		new_xml=ET.tostring(new_xml)
+		dom = etree.fromstring(new_xml)
+
 	xslt = etree.parse(xsl)
 	transform = etree.XSLT(xslt)
 	newdom = transform(dom)
