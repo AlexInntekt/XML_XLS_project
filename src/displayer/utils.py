@@ -47,5 +47,22 @@ def detail_view_querry(temp_id):
 	node_as_string = etree.tostring(node).decode('utf-8')
 	# transform = etree.XSLT(xslt)
 	# res = transform(node_as_string)
-	print(node_as_string)
 	return node_as_string
+
+
+
+
+def extract_categories():
+	et = ET.parse(settings.MEDIA_ROOT+'/data/f2.xml')
+	tools = et.getroot()
+
+	categories = []
+
+	for tool in tools.findall('tool'):
+		catg = tool.find('category').text
+
+		categories.append(catg)
+
+	categories = list(set(categories))
+
+	return categories

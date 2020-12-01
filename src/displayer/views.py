@@ -3,7 +3,7 @@ from lxml import etree
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
-from .utils import xsd_data, detail_view_querry
+from .utils import xsd_data, detail_view_querry, extract_categories
 from acquisitioner.utils import process
 from django.views.generic import TemplateView
 from django.views import View
@@ -21,7 +21,9 @@ class Tools(View):
 		else:
 			data_to_display = xsd_data(None)
 
-		return render(request, 'display.html', {'data':data_to_display})
+		categories = extract_categories()
+
+		return render(request, 'display.html', {'data':data_to_display, 'categories':categories})
 
 
 class Refresher(View):
