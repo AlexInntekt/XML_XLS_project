@@ -34,7 +34,16 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <tbody id="myTable">
       <tr>
         <td><xsl:value-of select="name"/></td>
-        <td><xsl:value-of select="url"/></td>
+        <td> 
+
+          <a>  
+              <xsl:attribute name="href">
+                <xsl:value-of select="url"/>
+              </xsl:attribute>
+              <xsl:value-of select="url"/>
+          </a> 
+
+        </td>
         <td><xsl:value-of select="category"/></td>
         <td><xsl:value-of select="web_based"/></td>
         <td><xsl:value-of select="type"/></td>

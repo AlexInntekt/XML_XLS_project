@@ -85,6 +85,9 @@ def process_data_to_new_format():
 				free_n = ET.SubElement(node, 'free')
 				free_n.text = random.choice(['free','costs money'])
 
+				description_n = ET.SubElement(node, 'description')
+				description_n.text = "No description provided"
+
 			except IndexError as e:
 				pass
 		i+=1
