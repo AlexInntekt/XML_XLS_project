@@ -19,8 +19,8 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <p>Las asta asa ca poate vrem sa scriem ceva AICI :)))</p>  
   <input class="form-control" id="myInput" type="text" placeholder="Search.."/>
   <br/>          
-  <table class="table table-bordered">
-    <thead>
+  <table class="table table-striped table-dark">
+    <thead class="thead-dark">
       <tr>
         <th>Name</th>
         <th>Url to toptools4learning</th>
