@@ -23,7 +23,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <thead>
       <tr>
         <th>Name</th>
-        <th>Url</th>
+        <th>Url to toptools4learning</th>
         <th>Category</th>
         <th>Web based / Desktop</th>
         <th>Learning / teaching specific </th>
@@ -33,7 +33,15 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:for-each select="tools/tool">
     <tbody id="myTable">
       <tr>
-        <td><xsl:value-of select="name"/></td>
+        <td>
+          <a>  
+              <xsl:attribute name="href">
+                tools/id=<xsl:value-of select="@temp_id"/>
+              </xsl:attribute>
+              <xsl:value-of select="name"/>
+          </a>
+        </td>
+
         <td> 
 
           <a>  

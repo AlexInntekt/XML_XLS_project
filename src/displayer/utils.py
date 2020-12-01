@@ -16,3 +16,12 @@ def xsd_data():
 
 
 	return newdom
+
+
+
+def detail_view_querry(temp_id):
+
+	xml  = settings.MEDIA_ROOT+'/data/f2.xml'
+
+
+	return xml
