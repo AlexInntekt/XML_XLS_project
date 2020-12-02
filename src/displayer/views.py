@@ -46,4 +46,4 @@ class DetailView(View):
 
 		data_to_display = detail_view_querry(temp_id)
 
-		return render(request, 'display.html', {'data':data_to_display})
+		return render(request, 'detail_display.html', {'data':data_to_display})
