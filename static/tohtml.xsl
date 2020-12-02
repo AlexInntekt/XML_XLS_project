@@ -25,9 +25,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
       <tr>
         <td>
           <a>  
-              <xsl:attribute name="href">
-                tools/id=<xsl:value-of select="@temp_id"/>
-              </xsl:attribute>
+              <xsl:attribute name="href">id=<xsl:value-of select="@temp_id"/></xsl:attribute>
               <xsl:value-of select="name"/>
           </a>
         </td>
@@ -68,7 +66,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <td><xsl:value-of select="free"/></td>
 
         <td><xsl:value-of select="added_on"/></td>
-        
+
       </tr>
     </tbody>
   </xsl:for-each>
