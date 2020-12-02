@@ -7,7 +7,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <p>Las asta asa ca poate vrem sa scriem ceva AICI :)))</p>  
   <input class="form-control" id="myInput" type="text" placeholder="Search.."/>
   <br/> 
-         
+
   <table class="table table-striped table-dark">
     <thead class="thead-dark">
       <tr>
@@ -17,6 +17,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <th>Web based / Desktop</th>
         <th>Learning / teaching specific </th>
         <th>Free</th>
+        <th>Added on</th>
       </tr>
     </thead>
   <xsl:for-each select="tools/tool">
@@ -65,6 +66,9 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 
         <td><xsl:value-of select="free"/></td>
+
+        <td><xsl:value-of select="added_on"/></td>
+        
       </tr>
     </tbody>
   </xsl:for-each>

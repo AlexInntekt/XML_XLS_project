@@ -2,6 +2,7 @@ import re
 import requests
 import os
 import random
+import datetime
 
 import xml.etree.ElementTree as ET
 
@@ -87,6 +88,10 @@ def process_data_to_new_format():
 
 				description_n = ET.SubElement(node, 'description')
 				description_n.text = "No description provided"
+
+				added_on = ET.SubElement(node, 'added_on')
+				now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+				added_on.text = now
 
 			except IndexError as e:
 				pass
