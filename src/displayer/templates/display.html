@@ -1,9 +1,54 @@
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+  
 
+<div class="container">
+  
+  <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    By category
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    
+    {% for categ in categories %}
+
+  		<a class="dropdown-item" href="http://127.0.0.1:8000/tools/category='{{categ}}'">{{categ}}</a>
+
+  	{% endfor %}
+
+  </div>
+</div>
+
+  
 
 
 	{% autoescape off %}
-		{{data}} {{categories}}
+		{{data}} 
 	{% endautoescape %}	
 
 
 
+
+
+</div>
+<script>
+  $(document).ready(function(){
+    $("#myInput").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#myTable tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+  </script>
+</body>
+</html>
