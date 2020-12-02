@@ -1,0 +1,11 @@
+<!ELEMENT tools (tool+)>
+<!ELEMENT tool (category,name,url, web_based,type,free,description,added_on)>
+<!ATTLIST tool temp_id CDATA "0">
+<!ELEMENT category (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT url (#PCDATA)>
+<!ELEMENT web_based (#PCDATA)>
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT free (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT added_on (#PCDATA)>
