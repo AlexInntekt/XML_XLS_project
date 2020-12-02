@@ -3,7 +3,7 @@ from lxml import etree
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
-from .utils import xsd_data, detail_view_querry, extract_categories
+from .utils import xsd_data, detail_view_querry, xsd_data_last_days, extract_categories
 from acquisitioner.utils import process
 from django.views.generic import TemplateView
 from django.views import View
@@ -18,6 +18,9 @@ class Tools(View):
 		if 'category' in kwargs:
 			category = kwargs['category']
 			data_to_display = xsd_data(category)
+		elif 'last_days' in kwargs:
+			last_days = kwargs['last_days']
+			data_to_display = xsd_data_last_days(last_days)
 		else:
 			data_to_display = xsd_data(None)
 

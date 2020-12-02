@@ -90,7 +90,7 @@ def process_data_to_new_format():
 				description_n.text = "No description provided"
 
 				added_on = ET.SubElement(node, 'added_on')
-				now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+				now = datetime.datetime.now().strftime("%Y-%m-%d")
 				added_on.text = now
 
 			except IndexError as e:

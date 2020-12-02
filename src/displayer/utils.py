@@ -1,5 +1,8 @@
 import lxml.etree as etree
+from xml.etree.ElementTree import fromstring, ElementTree, tostring
 import xml.etree.ElementTree as ET
+from datetime import datetime, timedelta
+import os
 
 from django.conf import settings
 
@@ -27,6 +30,7 @@ def xsd_data(category):
 		new_xml=ET.tostring(new_xml)
 		dom = etree.fromstring(new_xml)
 
+
 	xslt = etree.parse(xsl)
 	transform = etree.XSLT(xslt)
 	newdom = transform(dom)
@@ -34,6 +38,33 @@ def xsd_data(category):
 
 	return newdom
 
+
+def xsd_data_last_days(last_days):
+
+	xsl = settings.STATIC_ROOT+'/tohtml.xsl'
+
+	date = datetime.today() - timedelta(days=int(last_days))
+	date = date.strftime("%Y-%m-%d")
+	xpath_querry = "/tools/tool[added_on>'{}']".format(date)
+	xidel_command = "xidel {} -e \"{}\" --output-format=xml".format(settings.MEDIA_ROOT+'/data/f2.xml', xpath_querry)
+	output = os.popen(xidel_command).read()
+
+	et = ElementTree(fromstring(output.encode('utf-8')))
+	root=et.getroot()
+	root.tag='tools'
+
+	xml_string = tostring(root, encoding='utf8', method='xml').decode('utf-8')
+
+	# print("break")
+	# print(output)
+
+	dom = etree.fromstring(xml_string.encode('utf-8'))
+
+	xslt = etree.parse(xsl)
+	transform = etree.XSLT(xslt)
+	output = transform(dom)
+
+	return output
 
 
 def detail_view_querry(temp_id):

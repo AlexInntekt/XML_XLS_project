@@ -10,6 +10,7 @@ from .views import Tools, Refresher, DetailView
 urlpatterns = [
     path('tools', Tools.as_view()),
     path('tools/category=<str:category>', Tools.as_view(), name='category'),
+    path('tools/last_days=<str:last_days>', Tools.as_view()),
     path('tools/id=<int:id>', DetailView.as_view()),
     path('refresh', Refresher.as_view()),
 ] 
