@@ -73,18 +73,36 @@ def xsd_data_last_days(last_days):
 	return output
 
 
+# def xsd_detail_data(data):
+# 	xml  = settings.MEDIA_ROOT+'/data/f2.xml'
+# 	xsl = settings.STATIC_ROOT+'/detail_data.xsl'
+
+# 	dom = etree.parse(xml)
+
+# 	xslt = etree.parse(xsl)
+# 	transform = etree.XSLT(xslt)
+# 	newdom = transform(dom)
+
+
+# 	return newdom
+
+
 def detail_view_querry(temp_id):
 
 	xml  = settings.MEDIA_ROOT+'/data/f2.xml'
-	xsl = settings.STATIC_ROOT+'/detail_tohtml.xsl'
+	xsl = settings.STATIC_ROOT+'/detail_data.xsl'
 
 	xpath_querry = "/tools/tool[@temp_id='{}']".format(temp_id)
 	tree = etree.parse(xml)
 	node = tree.xpath(xpath_querry)[0]
-	node_as_string = etree.tostring(node).decode('utf-8')
-	# transform = etree.XSLT(xslt)
-	# res = transform(node_as_string)
-	return node_as_string
+
+	xslt = etree.parse(xsl)
+	transform = etree.XSLT(xslt)
+	node = transform(node)
+
+	# node_as_string = tostring(node).decode('utf-8')
+
+	return node
 
 
 
@@ -103,3 +121,5 @@ def extract_categories():
 	categories = list(set(categories))
 
 	return categories
+
+

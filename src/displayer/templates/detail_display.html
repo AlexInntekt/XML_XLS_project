@@ -1,41 +1,53 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Bootstrap Example</title>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-  
-<br>
-<div class="container">
-  
-  
-
-  
-
-
-  {% autoescape off %}
-    {{data}} 
-  {% endautoescape %} 
-
-
-
-
-
+<div class="jumbotron text-center">
+                <h1>TOP OF THE LIST IN 2020</h1>
 </div>
-<script>
-  $(document).ready(function(){
-    $("#myInput").on("keyup", function() {
-      var value = $(this).val().toLowerCase();
-      $("#myTable tr").filter(function() {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-      });
-    });
-  });
-  </script>
+  
+<div class="container-fluid">
+    <div class="media">
+        <img src="C:/POLITEHNICA IV/WS/Project_WS/images/youtube3.png" class="mr-3" alt="...">
+        <div class="media-body">
+            <br>
+            <hr>
+            <h5 class="mt-0">Name: YouTube</h5>
+            <h5 class="mt-0">Description</h5>
+          This video platform is both a key learning resource as well as a place for anyone to share their own video content.
+          </div> 
+        </div>
+    </div>
+</div>
+<br>
+<br>
+
+
+  
+ {% autoescape off %}
+    {{data}} 
+ {% endautoescape %} 
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+  
+
+
+ 

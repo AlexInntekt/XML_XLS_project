@@ -3,7 +3,8 @@ import requests
 import os
 import random
 import datetime
-
+from bs4 import BeautifulSoup
+import urllib
 import xml.etree.ElementTree as ET
 
 
@@ -13,8 +14,14 @@ from django.conf import settings
 
 
 
+def extract_image_url(url):
+    response = urllib.request.urlopen(url)
+    webContent = response.read()
+    web_html = webContent.decode('utf-8')
+    soup = BeautifulSoup(web_html, "lxml")
+    image_url = soup.article.div.div.find_all('img')[-1].get('src')
 
-
+    return image_url
 
 
 def check_if_directory_exists():
@@ -92,6 +99,9 @@ def process_data_to_new_format():
 				added_on = ET.SubElement(node, 'added_on')
 				now = datetime.datetime.now().strftime("%Y-%m-%d")
 				added_on.text = now
+
+				logo_n = ET.SubElement(node, 'image_logo')
+				logo_n.text = extract_image_url(url)
 
 			except IndexError as e:
 				pass
