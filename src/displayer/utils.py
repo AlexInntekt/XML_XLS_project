@@ -3,6 +3,7 @@ from xml.etree.ElementTree import fromstring, ElementTree, tostring
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 import os
+import sys
 
 from django.conf import settings
 
@@ -49,20 +50,25 @@ def xsd_data_last_days(last_days):
 	xidel_command = "xidel {} -e \"{}\" --output-format=xml".format(settings.MEDIA_ROOT+'/data/f2.xml', xpath_querry)
 	output = os.popen(xidel_command).read()
 
-	et = ElementTree(fromstring(output.encode('utf-8')))
-	root=et.getroot()
-	root.tag='tools'
+	ParseError = ET.ParseError
 
-	xml_string = tostring(root, encoding='utf8', method='xml').decode('utf-8')
+	try:
+		et = ElementTree(fromstring(output.encode('utf-8')))
+		root=et.getroot()
+		root.tag='tools'
 
-	# print("break")
-	# print(output)
+		xml_string = tostring(root, encoding='utf8', method='xml').decode('utf-8')
 
-	dom = etree.fromstring(xml_string.encode('utf-8'))
+		# print("break")
+		# print(output)
 
-	xslt = etree.parse(xsl)
-	transform = etree.XSLT(xslt)
-	output = transform(dom)
+		dom = etree.fromstring(xml_string.encode('utf-8'))
+
+		xslt = etree.parse(xsl)
+		transform = etree.XSLT(xslt)
+		output = transform(dom)
+	except ParseError:
+		return ""
 
 	return output
 
