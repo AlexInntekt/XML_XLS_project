@@ -1,0 +1,1 @@
+xmllint --noout --dtdvalid data.dtd ../media/data/f2.xml
