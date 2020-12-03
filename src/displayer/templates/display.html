@@ -9,6 +9,24 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
+
+  <script>
+
+  function get_last_days()
+  {
+    d = document.getElementById("textfield_days").value;
+    console.log(d);
+
+    if(d=="")
+    {
+      d=1;
+    }
+    document.getElementById("button_days").href = "/tools/last_days="+d
+
+    return d;
+  }
+
+  </script>
   
 <br>
 <div class="container">
@@ -26,6 +44,18 @@
   	{% endfor %}
 
   </div>
+
+  <br/>
+  <br/>
+
+  <form class="form-inline">
+    <label class="sr-only" for="inlineFormInputName2">Last n days</label>
+    <input id="textfield_days" type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Last n days..">
+    <div class="col-auto my-1">
+      <button type="button" class="btn btn-link"><a id="button_days" href="" target="_blank" onclick="get_last_days()">filter</a></button>
+    </div>
+  </form>
+
 </div>
 
   
