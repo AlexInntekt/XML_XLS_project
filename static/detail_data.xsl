@@ -7,9 +7,23 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 
 
+<div class="container-fluid">
+    <div class="media">
+        <img src="C:/POLITEHNICA IV/WS/Project_WS/images/youtube3.png" class="mr-3" alt="..."/>
+        <div class="media-body">
+            <br/>
+            <hr/>
+            <h5 class="mt-0">Name: <xsl:value-of select="name"/></h5>
+            <h5 class="mt-0">Description</h5>
+          	<p><xsl:value-of select="description"/></p>
+     	</div>
+    </div>
+</div>
+<br/>
+<br/>
 
 <div class="container">
-    <h5>Tool: <xsl:value-of select="name"/></h5>
+    <h5>Tool: <xsl:value-of select="name"/> </h5>
 
     <h5>Url: <a href="https://www.youtube.com/" target="_blank">YouTube</a></h5>
     <h5>Price: <xsl:value-of select="free"/> </h5>
