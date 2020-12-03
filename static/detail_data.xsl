@@ -9,7 +9,11 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <div class="container-fluid">
     <div class="media">
-        <img src="C:/POLITEHNICA IV/WS/Project_WS/images/youtube3.png" class="mr-3" alt="..."/>
+
+        <img class="mr-3" style="width: 300px;">  
+              <xsl:attribute name="src"><xsl:value-of select="image_logo"/></xsl:attribute>
+        </img>
+
         <div class="media-body">
             <br/>
             <hr/>
