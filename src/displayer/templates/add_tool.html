@@ -1,0 +1,44 @@
+<html>
+<head>
+
+</head>
+
+<body>
+
+
+<br/>
+<br/>
+
+{{msg}}
+
+<form action="/tools/add_tool" method="POST"> {% csrf_token %}
+  <label for="category">Category:</label><br>
+  <input type="text" id="category" name="category"><br><br>
+
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="name"><br><br>
+
+  <label for="url">url:</label><br>
+  <input type="text" id="url" name="url"><br><br>
+
+  <label for="web_based">Web based:</label><br>
+  <input type="text" id="web_based" name="web_based"><br><br>
+
+  <label for="type">Type:</label><br>
+  <input type="text" id="type" name="type"><br><br>
+
+  <label for="free">Free or not:</label><br>
+  <input type="text" id="free" name="free"><br><br>
+
+  <label for="description">Description:</label><br>
+  <input type="text" id="description" name="description"><br><br>
+
+  <input type="submit" value="Submit">
+  
+</form>
+
+
+</body>
+
+
+</html>
