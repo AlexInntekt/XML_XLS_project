@@ -130,13 +130,18 @@ class AddTool(View):
 		output, error = subprocess.Popen(validation_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
 		output = output.decode('utf-8')
 		error = error.decode('utf-8')
-		
+
 		valid_xml = False
 		if error=='':
 			valid_xml=True
 
-		print(valid_xml)
+		# print(valid_xml)
 		# print(error)
+
+		if valid_xml:
+			msg="The instance was succesfully added in the XML database!"
+		else:
+			msg="The instance could not be added to the database because the DTD validation failed."
 
 
 		return render(request, 'add_tool.html', {"msg":msg})
