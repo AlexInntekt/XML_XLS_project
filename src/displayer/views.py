@@ -127,18 +127,21 @@ class AddTool(View):
 		output = output.decode('utf-8')
 		error = error.decode('utf-8')
 
-		valid_xml = False
+		valid_dtd = False
 		if error=='':
-			valid_xml = True
+			valid_dtd = True
 
-		cond1 = web_based_n=='web_based' or web_based_n=='desktop' 
-
+		web_based_cond = web_based_n=='web_based' or web_based_n=='desktop' 
 
 		# print(valid_xml)
 		# print(error)
+		print(web_based_n)
 
-		if valid_xml:
+
+		if valid_dtd:
 			msg="The instance was succesfully added in the XML database!"
+		elif not web_based_cond:
+			msg = "The web based value should be whether 'web_based' or 'desktop'"
 		else:
 			msg="The instance could not be added to the database because the DTD validation failed."
 
