@@ -47,3 +47,18 @@ class DetailView(View):
 		data_to_display = detail_view_querry(temp_id)
 
 		return render(request, 'detail_display.html', {'data':data_to_display})
+
+
+class AddTool(View):
+
+	def get(self, request, **kwargs):
+
+		return render(request, 'add_tool.html', {"msg":""})
+
+
+	def post(self, request, **kwargs):
+
+		data = request.POST
+		msg="I received your data"
+		msg=data
+		return render(request, 'add_tool.html', {"msg":msg})
