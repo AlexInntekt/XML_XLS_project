@@ -77,12 +77,8 @@ class AddTool(View):
 		description = data["description"]
 		logo = data["logo"]
 
-
 		et = ET.parse(settings.MEDIA_ROOT+'/data/f2.xml')
 		root = et.getroot()
-
-		# for tool in root.findall('tool'):
-		# 	print(tool.find('name').text)
 
 		node = ET.SubElement(root, 'tool')
 		node.set('temp_id',"USER_ADDED")
@@ -133,7 +129,10 @@ class AddTool(View):
 
 		valid_xml = False
 		if error=='':
-			valid_xml=True
+			valid_xml = True
+
+		cond1 = web_based_n=='web_based' or web_based_n=='desktop' 
+
 
 		# print(valid_xml)
 		# print(error)
