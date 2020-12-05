@@ -1,5 +1,6 @@
 import datetime
 import os
+import subprocess
 
 from lxml import etree
 import xml.etree.ElementTree as ET
@@ -111,24 +112,31 @@ class AddTool(View):
 		now = datetime.datetime.now().strftime("%Y-%m-%d")
 		added_on.text = now
 
-		# logo_n = ET.SubElement(node, 'image_logo')
-		# logo_n.text = logo
+		logo_n = ET.SubElement(node, 'image_logo')
+		logo_n.text = logo
 
 		with open(settings.MEDIA_ROOT+'/data/added_by_client.xml', 'w') as f:
 			data_as_str = ET.tostring(root).decode('utf-8')
 			f.write(data_as_str)
 
 		root_path = os.path.dirname(settings.BASE_DIR)
-		validation_command = "xmllint --noout --dtdvalid data.dtd {}/media/data/added_by_client.xml".format(root_path)
+		validation_command = "xmllint --noout --dtdvalid {}/static/data.dtd {}/media/data/added_by_client.xml".format(root_path, root_path)
 
-		output = os.popen(validation_command).read()
+		# output = os.popen(validation_command).read()
 		# print("output: {}".format(output))
 
+		# proc = subprocess.Popen([validation_command], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+		# output, error = proc.communicate()
+		output, error = subprocess.Popen(validation_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+		output = output.decode('utf-8')
+		error = error.decode('utf-8')
+		
 		valid_xml = False
-		if output=='':
+		if error=='':
 			valid_xml=True
 
 		print(valid_xml)
+		# print(error)
 
 
 		return render(request, 'add_tool.html', {"msg":msg})
