@@ -111,16 +111,24 @@ class AddTool(View):
 		now = datetime.datetime.now().strftime("%Y-%m-%d")
 		added_on.text = now
 
-		logo_n = ET.SubElement(node, 'image_logo')
-		logo_n.text = logo
+		# logo_n = ET.SubElement(node, 'image_logo')
+		# logo_n.text = logo
 
 		with open(settings.MEDIA_ROOT+'/data/added_by_client.xml', 'w') as f:
 			data_as_str = ET.tostring(root).decode('utf-8')
 			f.write(data_as_str)
 
-		validation_command = "xmllint --noout --dtdvalid data.dtd ../media/data/f2.added_by_client"
+		root_path = os.path.dirname(settings.BASE_DIR)
+		validation_command = "xmllint --noout --dtdvalid data.dtd {}/media/data/added_by_client.xml".format(root_path)
 
 		output = os.popen(validation_command).read()
-		print("output: ".format(output))
+		# print("output: {}".format(output))
+
+		valid_xml = False
+		if output=='':
+			valid_xml=True
+
+		print(valid_xml)
+
 
 		return render(request, 'add_tool.html', {"msg":msg})
