@@ -72,7 +72,7 @@ class AddTool(View):
 		name = data["name"]
 		url = data["url"]
 		web_based = data["web_based"]
-		type_n = data["type"]
+		type_t = data["type"]
 		free = data["free"]
 		description = data["description"]
 		logo = data["logo"]
@@ -96,7 +96,7 @@ class AddTool(View):
 		web_based_n.text = web_based
 
 		type_n = ET.SubElement(node, 'type')
-		type_n.text = type_n
+		type_n.text = type_t
 
 		free_n = ET.SubElement(node, 'free')
 		free_n.text = free
@@ -131,19 +131,24 @@ class AddTool(View):
 		if error=='':
 			valid_dtd = True
 
-		web_based_cond = web_based_n=='web_based' or web_based_n=='desktop' 
+		web_based_cond = web_based=='web_based' or web_based=='desktop' 
+		type_cond = type_t=='learning' or type_t=='teaching'
 
-		# print(valid_xml)
-		# print(error)
-		print(web_based_n)
+		all_validation_passed = valid_dtd and web_based_cond and type_cond
 
+		if not all_validation_passed:
 
-		if valid_dtd:
-			msg="The instance was succesfully added in the XML database!"
-		elif not web_based_cond:
-			msg = "The web based value should be whether 'web_based' or 'desktop'"
+			if not web_based_cond:
+				msg = "The web based value should be whether 'web_based' or 'desktop'"
+			elif not type_cond:
+				msg = "The field 'type' should have as value 'learning' or 'teaching'"
+			elif not valid_dtd:
+				msg="The instance could not be added to the database because the DTD validation failed."
+			else:
+				msg="For some unknown reason the validation failed."
+		
 		else:
-			msg="The instance could not be added to the database because the DTD validation failed."
-
+			msg="The instance was succesfully added in the XML database!"
+		
 
 		return render(request, 'add_tool.html', {"msg":msg})
