@@ -133,12 +133,13 @@ class AddTool(View):
 
 		web_based_cond = web_based=='web_based' or web_based=='desktop' 
 		type_cond = type_t=='learning' or type_t=='teaching'
-
-		all_validation_passed = valid_dtd and web_based_cond and type_cond
+		no_empty_field = category!='' and name!='' and url!='' and web_based!='' and type_t!='' and free!='' and logo!='' and description!=''
+		all_validation_passed = valid_dtd and web_based_cond and type_cond and no_empty_field
 
 		if not all_validation_passed:
-
-			if not web_based_cond:
+			if not no_empty_field:
+				msg = "Fields should not be empty!"
+			elif not web_based_cond:
 				msg = "The web based value should be whether 'web_based' or 'desktop'"
 			elif not type_cond:
 				msg = "The field 'type' should have as value 'learning' or 'teaching'"
