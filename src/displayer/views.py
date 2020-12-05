@@ -1,4 +1,5 @@
 import datetime
+import os
 
 from lxml import etree
 import xml.etree.ElementTree as ET
@@ -116,5 +117,10 @@ class AddTool(View):
 		with open(settings.MEDIA_ROOT+'/data/added_by_client.xml', 'w') as f:
 			data_as_str = ET.tostring(root).decode('utf-8')
 			f.write(data_as_str)
+
+		validation_command = "xmllint --noout --dtdvalid data.dtd ../media/data/f2.added_by_client"
+
+		output = os.popen(validation_command).read()
+		print("output: ".format(output))
 
 		return render(request, 'add_tool.html', {"msg":msg})
