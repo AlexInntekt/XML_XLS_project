@@ -76,6 +76,7 @@ def process_data_to_new_format():
 				node.set('temp_id',str(i))
 
 				cat_n = ET.SubElement(node, 'category')
+				category = category.replace("/", "_")
 				cat_n.text = category
 
 				name_n = ET.SubElement(node, 'name')
@@ -102,6 +103,8 @@ def process_data_to_new_format():
 
 				logo_n = ET.SubElement(node, 'image_logo')
 				logo_n.text = extract_image_url(url)
+
+				print("Indexing {}..".format(name))
 
 			except IndexError as e:
 				pass
