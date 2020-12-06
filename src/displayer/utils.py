@@ -120,6 +120,8 @@ def extract_categories():
 
 	categories = list(set(categories))
 
+	categories.sort()
+
 	return categories
 
 
