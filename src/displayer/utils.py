@@ -67,7 +67,9 @@ def xsd_data_last_days(last_days):
 		xslt = etree.parse(xsl)
 		transform = etree.XSLT(xslt)
 		output = transform(dom)
-	except ParseError:
+	except ParseError as e:
+		print("\n\n\n")
+		print(e)
 		return ""
 
 	return output

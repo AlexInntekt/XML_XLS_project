@@ -84,7 +84,7 @@ class AddTool(View):
 		max_id=0
 		for tool in root:
 			try:
-				tmpid = int(tool.attrib["temp_id"])
+				tmpid = int(tool.attrib["temp_id"])+1
 				if max_id < tmpid:
 					max_id = tmpid
 			except KeyError as e:
