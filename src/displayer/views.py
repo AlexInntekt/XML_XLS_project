@@ -81,7 +81,16 @@ class AddTool(View):
 		root = et.getroot()
 
 		node = ET.SubElement(root, 'tool')
-		node.set('temp_id',"USER_ADDED")
+		max_id=0
+		for tool in root:
+			try:
+				tmpid = int(tool.attrib["temp_id"])
+				if max_id < tmpid:
+					max_id = tmpid
+			except KeyError as e:
+				pass
+
+		node.set('temp_id',str(max_id))
 
 		cat_n = ET.SubElement(node, 'category')
 		cat_n.text = category
@@ -150,6 +159,11 @@ class AddTool(View):
 		
 		else:
 			msg="The instance was succesfully added in the XML database!"
-		
+
+			with open(settings.MEDIA_ROOT+'/data/f2.xml', 'w') as f:
+				data_as_str = ET.tostring(root).decode('utf-8')
+				f.write(data_as_str)
+			
+			
 
 		return render(request, 'add_tool.html', {"msg":msg})
