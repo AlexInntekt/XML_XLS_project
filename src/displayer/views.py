@@ -168,5 +168,6 @@ class AddTool(View):
 				f.write(data_as_str)
 			
 		
+		categories = extract_categories()
 
-		return render(request, 'add_tool.html', {"msg":msg})
+		return render(request, 'add_tool.html', {"msg":msg, 'categories':categories})
