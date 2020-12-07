@@ -29,7 +29,13 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <div class="container">
     <h5>Tool: <xsl:value-of select="name"/> </h5>
 
-    <h5>Url: <a href="https://www.youtube.com/" target="_blank">YouTube</a></h5>
+    <h5>
+        <a>  
+            <xsl:attribute name="href"><xsl:value-of select="url"/></xsl:attribute>
+            <xsl:value-of select="name"/>
+        </a>
+    </h5>
+
     <h5>Price: <xsl:value-of select="free"/> </h5>
     <h5>Web based: <xsl:value-of select="web_based"/> </h5>
     <h5>Added on: <xsl:value-of select="added_on"/> </h5>

@@ -1,5 +1,5 @@
 <!ELEMENT tools (tool+)>
-<!ELEMENT tool (category,name,url, web_based,type,free,description,added_on)>
+<!ELEMENT tool (category,name,url, web_based,type,free,description,added_on, image_logo)>
 <!ATTLIST tool temp_id CDATA "0">
 <!ELEMENT category (#PCDATA)>
 <!ELEMENT name (#PCDATA)>
@@ -7,5 +7,6 @@
 <!ELEMENT web_based (#PCDATA)>
 <!ELEMENT type (#PCDATA)>
 <!ELEMENT free (#PCDATA)>
+<!ELEMENT image_logo (#PCDATA)>
 <!ELEMENT description (#PCDATA)>
 <!ELEMENT added_on (#PCDATA)>
