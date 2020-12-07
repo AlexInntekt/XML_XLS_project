@@ -9,6 +9,37 @@
 
 <body>
 
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+  <!-- Brand -->
+
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="http://127.0.0.1:8000/tools#">Tools</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="http://127.0.0.1:8000/tools/add_tool">Form</a>
+    </li>
+
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        By category
+      </a>
+      <div class="dropdown-menu">
+        {% for categ in categories %}
+
+        <a class="dropdown-item" href="http://127.0.0.1:8000/tools/category='{{categ}}'">{{categ}}</a>
+        
+        {% endfor %}
+
+      </div>
+    </li>
+  </ul>
+</nav>
+
+
 
 <br/>
 <br/>
@@ -38,8 +69,8 @@
         <div class="col">
           <label for="web_based">Web based:</label><br>
           <select class="form-control" name="web_based" id="web_based">
-            <option>Web based</option>
-            <option>Desktop</option>
+            <option value="web_based">Web based</option>
+            <option value="desktop">Desktop</option>
           </select><br><br>
         </div>
       </div>
@@ -48,16 +79,16 @@
         <div class="col">
          <label for="type">Type:</label><br>
           <select class="form-control"name="type" id="type">
-            <option>Learning</option>
-            <option>Teaching</option>
+            <option value="learning">Learning</option>
+            <option value="teaching">Teaching</option>
           </select><br><br>
         </div>
       
         <div class="col">  
           <label for="free">Free or not:</label><br>
           <select class="form-control"name="free" id="free">
-            <option>Free</option>
-            <option>Costs Money</option>
+            <option value="free">Free</option>
+            <option value="costs_money">Costs Money</option>
           </select><br><br>
         </div>
       </div>

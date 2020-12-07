@@ -4,7 +4,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
         
 <h2>Search and Recommendations</h2>
-  <p>Las asta asa ca poate vrem sa scriem ceva AICI :)))</p>  
+  <p>Learning and teaching tools</p>  
   <input class="form-control" id="myInput" type="text" placeholder="Search.."/>
   <br/> 
 

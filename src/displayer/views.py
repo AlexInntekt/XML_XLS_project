@@ -51,15 +51,18 @@ class DetailView(View):
 		temp_id = kwargs['id']
 
 		data_to_display = detail_view_querry(temp_id)
+		categories = extract_categories()
 
-		return render(request, 'detail_display.html', {'data':data_to_display})
+		return render(request, 'detail_display.html', {'data':data_to_display, 'categories':categories})
 
 
 class AddTool(View):
 
 	def get(self, request, **kwargs):
 
-		return render(request, 'add_tool.html', {"msg":""})
+		categories = extract_categories()
+		
+		return render(request, 'add_tool.html', {"msg":"", 'categories':categories})
 
 
 	def post(self, request, **kwargs):
@@ -164,6 +167,6 @@ class AddTool(View):
 				data_as_str = ET.tostring(root).decode('utf-8')
 				f.write(data_as_str)
 			
-			
+		
 
 		return render(request, 'add_tool.html', {"msg":msg})
