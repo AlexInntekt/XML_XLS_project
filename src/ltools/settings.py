@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SCRAP_IMAGES = False
 
 # Application definition
 
