@@ -15,12 +15,13 @@ from django.conf import settings
 
 
 def extract_image_url(url):
+
     response = urllib.request.urlopen(url)
     webContent = response.read()
     web_html = webContent.decode('utf-8')
     soup = BeautifulSoup(web_html, "lxml")
     image_url = soup.article.div.div.find_all('img')[-1].get('src')
-
+    # image_url = ""
     return image_url
 
 
@@ -74,6 +75,9 @@ def process_data_to_new_format():
 
 				node = ET.SubElement(new_xml, 'tool')
 				node.set('temp_id',str(i))
+
+				position_n = ET.SubElement(node, 'position')
+				position_n.text = str(i)
 
 				cat_n = ET.SubElement(node, 'category')
 				category = category.replace("/", "_")
