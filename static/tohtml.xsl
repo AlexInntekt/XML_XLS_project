@@ -22,7 +22,9 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <th>Added on</th>
       </tr>
     </thead>
+
   <xsl:for-each select="tools/tool">
+    <xsl:sort select="position" data-type="number"/>
 
     <tbody id="myTable">
       <tr>
