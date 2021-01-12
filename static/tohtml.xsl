@@ -11,6 +11,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <table class="table table-striped table-dark">
     <thead class="thead-dark">
       <tr>
+        <th>Rank</th>
         <th>Logo</th>
         <th>Name</th>
         <th>Url to toptools4learning</th>
@@ -22,8 +23,13 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
       </tr>
     </thead>
   <xsl:for-each select="tools/tool">
+
     <tbody id="myTable">
       <tr>
+        <td>
+          <xsl:value-of select="position"/>
+        </td>
+
         <td>
           <img style="width: 55px;">  
               <xsl:attribute name="src"><xsl:value-of select="image_logo"/></xsl:attribute>
