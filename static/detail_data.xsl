@@ -38,8 +38,10 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
     <h5>Price: <xsl:value-of select="free"/> </h5>
     <h5>Web based: <xsl:value-of select="web_based"/> </h5>
+    <h5>Proper for engineering: <xsl:value-of select="engineering"/> </h5>
     <h5>Added on: <xsl:value-of select="added_on"/> </h5>
     <h5>ID: <xsl:value-of select="@temp_id"/> </h5>
+    <h5>Rank: <xsl:value-of select="position"/> </h5>
 </div>
 
 </xsl:for-each>
