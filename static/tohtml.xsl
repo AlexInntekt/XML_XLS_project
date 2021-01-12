@@ -18,6 +18,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <th>Category</th>
         <th>Web based / Desktop</th>
         <th>Learning / teaching specific </th>
+        <th> For engineering </th>
         <th>Free</th>
         <th>Added on</th>
       </tr>
@@ -77,6 +78,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
         </td>
 
+        <td><xsl:value-of select="engineering"/></td>
 
         <td><xsl:value-of select="free"/></td>
 

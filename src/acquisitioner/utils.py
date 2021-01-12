@@ -43,7 +43,7 @@ def download_webpage():
     open(settings.MEDIA_ROOT+'/data/raw_data.html', 'wb').write(r.content)
 
 
-def extract_tabelar_data():
+def extract_tabular_data():
     #extract only what we need from the raw data html:
     with open(settings.MEDIA_ROOT+'/data/raw_data.html', 'r') as f:
         data = f.read()
@@ -70,16 +70,16 @@ def process_data_to_new_format():
         if not i<skipping: #skip first 2 lines
             try:
                 item = tr.findall('td')
-
+                index_no = i-2
                 category = item[3].text
                 name = item[2].find('a').text
                 url = item[2].find('a').get('href')
 
                 node = ET.SubElement(new_xml, 'tool')
-                node.set('temp_id',str(i))
+                node.set('temp_id',str(index_no))
 
                 position_n = ET.SubElement(node, 'position')
-                position_n.text = str(i)
+                position_n.text = str(index_no)
 
                 cat_n = ET.SubElement(node, 'category')
                 category = category.replace("/", "_")
@@ -99,6 +99,9 @@ def process_data_to_new_format():
 
                 free_n = ET.SubElement(node, 'free')
                 free_n.text = random.choice(['free','costs money'])
+
+                engineering_n = ET.SubElement(node, 'engineering')
+                engineering_n.text = random.choice(['yes','no'])
 
                 description_n = ET.SubElement(node, 'description')
                 description_n.text = "No description provided"
@@ -127,7 +130,7 @@ def process_data_to_new_format():
 def process():
     check_if_directory_exists()
     download_webpage()
-    extract_tabelar_data()
+    extract_tabular_data()
     process_data_to_new_format()
 
 
