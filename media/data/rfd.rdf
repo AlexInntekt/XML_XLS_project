@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:lt="http://www.toptools4learning.com/">
+	
+	<lt:Category rdf:about="http://www.toptools4learning.com/category/web_resource"></lt:Category>
+	<lt:Category rdf:about="http://www.toptools4learning.com/category/social_network"></lt:Category>
+	<lt:Category rdf:about="http://www.toptools4learning.com/category/specialized_learning_tool"></lt:Category>
+	<lt:Category rdf:about="http://www.toptools4learning.com/category/learning_tool"></lt:Category>
+
+	<lt:Base rdf:about="http://www.toptools4learning.com/base/desktop"></lt:Base>
+	<lt:Base rdf:about="http://www.toptools4learning.com/base/web"></lt:Base>
+	<lt:Base rdf:about="http://www.toptools4learning.com/base/mobile"></lt:Base>
+	
+	<lt:Domain rdf:about="http://www.toptools4learning.com/domain/any"></lt:Domain>
+	<lt:Domain rdf:about="http://www.toptools4learning.com/domain/architecture"></lt:Domain>
+	<lt:Domain rdf:about="http://www.toptools4learning.com/domain/engineering"></lt:Domain>
+	<lt:Domain rdf:about="http://www.toptools4learning.com/domain/dancing"></lt:Domain>
+
+
+	<rdf:Description rdf:about="http://www.youtube.com">
+		<lt:placement>1</lt:placement>
+		<lt:member rdf:resource="http://www.toptools4learning.com/category/web_resource"/>
+		<lt:member rdf:resource="http://www.toptools4learning.com/base/web"/>
+		<lt:member rdf:resource="http://www.toptools4learning.com/domain/any"/>
+	</rdf:Description>
+
+	<rdf:Description rdf:about="http://www.wikipedia.com">
+		<lt:placement>11</lt:placement>
+		<lt:member rdf:resource="http://www.toptools4learning.com/category/web_resource"/>
+		<lt:member rdf:resource="http://www.toptools4learning.com/base/web"/>
+		<lt:member rdf:resource="http://www.toptools4learning.com/domain/any"/>
+	</rdf:Description>
+
+	<rdf:Description rdf:about="http://www.linkedin.com">
+		<lt:placement>8</lt:placement>
+		<lt:member rdf:resource="http://www.toptools4learning.com/category/social_network"/>
+		<lt:member rdf:resource="http://www.toptools4learning.com/base/web"/>
+		<lt:member rdf:resource="http://www.toptools4learning.com/domain/any"/>
+	</rdf:Description>
+
+	<rdf:Description rdf:about="http://www.twitter.com">
+		<lt:placement>9</lt:placement>
+		<lt:member rdf:resource="http://www.toptools4learning.com/category/social_network"/>
+		<lt:member rdf:resource="http://www.toptools4learning.com/base/web"/>
+		<lt:member rdf:resource="http://www.toptools4learning.com/domain/any"/>
+	</rdf:Description>
+
+	<rdf:Description rdf:about="http://www.facebook.com">
+		<lt:placement>12</lt:placement>
+		<lt:member rdf:resource="http://www.toptools4learning.com/category/social_network"/>
+		<lt:member rdf:resource="http://www.toptools4learning.com/base/web"/>
+		<lt:member rdf:resource="http://www.toptools4learning.com/domain/any"/>
+	</rdf:Description>
+
+	<rdf:Description rdf:about="http://www.cadexpert.eu/">
+		<lt:member rdf:resource="http://www.toptools4learning.com/category/specialized_learning_tool"/>
+		<lt:member rdf:resource="http://www.toptools4learning.com/base/desktop"/>
+		<lt:member rdf:resource="http://www.toptools4learning.com/domain/architecture"/>
+		<lt:member rdf:resource="http://www.toptools4learning.com/domain/engineering"/>
+	</rdf:Description>
+
+	<rdf:Description rdf:about="http://www.learnVRdance.com/">
+		<lt:Category rdf:resource="http://www.toptools4learning.com/category/learning_tool"></lt:Category>
+		<lt:member rdf:resource="http://www.toptools4learning.com/base/mobile"/>
+		<lt:member rdf:resource="http://www.toptools4learning.com/domain/dancing"/>
+	</rdf:Description>
+</rdf:RDF>

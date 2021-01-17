@@ -5,8 +5,27 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         
 <h2>Search and Recommendations</h2>
   <p>Learning and teaching tools</p>  
-  <input class="form-control" id="myInput" type="text" placeholder="Search.."/>
+  <div class="row">
+    <div class="col">
+      <input class="form-control" id="myInput" type="text" placeholder="Search.."/>
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Rank 1"/>
+    </div>
+
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Rank 2"/>
+    </div>
+    <div class="col">
+     <button class="btn btn-outline-dark btn-link " type="submit" value="Submit">Filter</button>
+    </div>
+  </div>
+
+
+  
   <br/> 
+
+  
 
   <table class="table table-striped table-dark">
     <thead class="thead-dark">
