@@ -68,9 +68,29 @@ def get_rfd_data():
 
                 dict_data[name]['category'] = category
 
-                # print(name)
-                # print(category)
-                # print()
+
+            if 'http://www.toptools4learning.com/domain/' in str(p):
+
+                domain = str(p).split('/')[-1]
+
+                if name not in dict_data:
+                    dict_data[name] = {}
+                    # print('>> ')
+                    # print(name)
+
+                dict_data[name]['domain'] = domain
+
+
+            if 'http://www.toptools4learning.com/base' in str(p):
+
+                based = str(p).split('/')[-1]
+
+                if name not in dict_data:
+                    dict_data[name] = {}
+                    # print('>> ')
+                    # print(name)
+
+                dict_data[name]['based'] = based
 
     print(dict_data)
 
