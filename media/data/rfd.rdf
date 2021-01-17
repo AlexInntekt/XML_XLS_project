@@ -64,7 +64,7 @@
 
 	<rdf:Description rdf:about="http://www.learnVRdance.com/">
 		<lt:placement>2</lt:placement>
-		<lt:Category rdf:resource="http://www.toptools4learning.com/category/learning_tool"></lt:Category>
+		<lt:member rdf:resource="http://www.toptools4learning.com/category/learning_tool"/>
 		<lt:member rdf:resource="http://www.toptools4learning.com/base/mobile"/>
 		<lt:member rdf:resource="http://www.toptools4learning.com/domain/dancing"/>
 	</rdf:Description>

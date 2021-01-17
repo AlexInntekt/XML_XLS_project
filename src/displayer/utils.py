@@ -63,8 +63,8 @@ def get_rfd_data():
 
                 if name not in dict_data:
                     dict_data[name] = {}
-                    print('>> ')
-                    print(name)
+                    # print('>> ')
+                    # print(name)
 
                 dict_data[name]['category'] = category
 
