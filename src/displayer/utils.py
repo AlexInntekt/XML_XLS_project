@@ -16,7 +16,7 @@ def get_rfd_data():
     dict_data = {}
 
     placement="http://www.toptools4learning.com/placement"
-    category="http://www.toptools4learning.com/Category"
+    member="http://www.toptools4learning.com/member"
 
     g = Graph()
     g.parse("/home/alex/repos/ltools/media/data/rfd.rdf", format="xml")
@@ -26,15 +26,14 @@ def get_rfd_data():
     import pprint
     for s, v, p in g:
 
-        # print(s)
-        # print(v)
-        # print(p)
-        # print()
+        print(s)
+        print(v)
+        print(p)
+        print()
 
+        name = s.split('\'')[0]
 
         if(str(v)==str(placement)):
-
-            name = s.split('\'')[0]
 
             obj = {}
 
@@ -47,16 +46,34 @@ def get_rfd_data():
             dict_data[name] = obj
             # data.append(obj)
 
+        # print(v)
 
-        if(str(v)==str(category)):
+    print(dict_data)
+    print()
 
-            name = s.split('\'')[0]
+    for s, v, p in g:
 
-            if name not in dict_data:
-                dict_data[name] = {}
+        name = s.split('\'')[0]
+
+        if(str(v)==str(member)):
+
+            if 'http://www.toptools4learning.com/category/' in str(p):
+
+                category = str(p).split('/')[-1]
+
+                if name not in dict_data:
+                    dict_data[name] = {}
+                    print('>> ')
+                    print(name)
+
+                dict_data[name]['category'] = category
+
                 # print(name)
+                # print(category)
+                # print()
 
-        #     dict_data[name]['category'] = str(p)
+    print(dict_data)
+
 
     
     for key, val in dict_data.items():

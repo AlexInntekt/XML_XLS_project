@@ -55,6 +55,7 @@
 	</rdf:Description>
 
 	<rdf:Description rdf:about="http://www.cadexpert.eu/">
+		<lt:placement>3</lt:placement>
 		<lt:member rdf:resource="http://www.toptools4learning.com/category/specialized_learning_tool"/>
 		<lt:member rdf:resource="http://www.toptools4learning.com/base/desktop"/>
 		<lt:member rdf:resource="http://www.toptools4learning.com/domain/architecture"/>
