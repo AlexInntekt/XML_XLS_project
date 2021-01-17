@@ -21,7 +21,7 @@ class RFDView(View):
 	def get(self, request, **kwargs):
 
 		data_to_display = []
-		data = get_rfd_data()
+		data_to_display = get_rfd_data()
 
 		categories = extract_categories()
 

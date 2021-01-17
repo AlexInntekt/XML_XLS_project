@@ -8,6 +8,7 @@ import sys
 from django.conf import settings
 
 # import jaydebeapi
+from rdflib import Graph
 
 
 def get_rfd_data():
@@ -21,16 +22,19 @@ def get_rfd_data():
 	# SELECT DISTINCT ?a WHERE {​​​​​ ?a ?b ?b . }​​​​​ """ 
 	# cursor.execute(query) # do something with the results cursor.close() conn.close()
 
-	from rdflib import Graph
+	
 
 	g = Graph()
 	g.parse("/home/alex/repos/ltools/media/data/rfd.rdf", format="xml")
 
-	print(len(g)) # prints 2
+	# print(len(g)) # prints 2
 
 	import pprint
-	for stmt in g:
-	    pprint.pprint(stmt)
+	for inst in g:
+
+	    pprint.pprint(inst)
+	    print()
+
 
 	return data
 
