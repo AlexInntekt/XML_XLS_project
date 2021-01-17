@@ -26,12 +26,11 @@ def get_rfd_data():
     import pprint
     for s, v, p in g:
 
-        print(s)
-        print(v)
-        print(p)
-        print()
+        # print(s)
+        # print(v)
+        # print(p)
+        # print()
 
-        
 
         if(str(v)==str(placement)):
 
@@ -48,15 +47,17 @@ def get_rfd_data():
             dict_data[name] = obj
             # data.append(obj)
 
-        # if(str(v)==str(category)):
 
-        #     name = s.split('\'')[0]
+        if(str(v)==str(category)):
 
-        #     if name not in dict_data:
-        #         dict_data[name] = {}
+            name = s.split('\'')[0]
+
+            if name not in dict_data:
+                dict_data[name] = {}
+                # print(name)
 
         #     dict_data[name]['category'] = str(p)
-            
+
     
     for key, val in dict_data.items():
         data.append(val)
