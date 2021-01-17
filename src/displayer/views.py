@@ -17,6 +17,15 @@ from django.conf import settings
 
 
 
+class RFDView(View):
+	def get(self, request, **kwargs):
+
+		data_to_display = []
+
+		categories = extract_categories()
+
+		return render(request, 'display.html', {'data':data_to_display, 'categories':categories})
+
 class Tools(View):
 
 	def get(self, request, **kwargs):
