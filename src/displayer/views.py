@@ -8,7 +8,7 @@ import xml.etree.ElementTree as ET
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
-from .utils import xsd_data, detail_view_querry, xsd_data_last_days, extract_categories
+from .utils import xsd_data, detail_view_querry, xsd_data_last_days, extract_categories, get_rfd_data
 from acquisitioner.utils import process
 from django.views.generic import TemplateView
 from django.views import View
@@ -21,6 +21,7 @@ class RFDView(View):
 	def get(self, request, **kwargs):
 
 		data_to_display = []
+		data = get_rfd_data()
 
 		categories = extract_categories()
 

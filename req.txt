@@ -2,3 +2,5 @@ django
 requests
 lxml
 bs4
+rdflib
+

@@ -7,6 +7,34 @@ import sys
 
 from django.conf import settings
 
+# import jaydebeapi
+
+
+def get_rfd_data():
+	data = []
+
+	# jclass = "org.apache.jena.jdbc.JenaJDBC" 
+	# conn_string = "jdbc:jena:tdb:location=/home/alex/repos/ltools/media/data/rfd.rdf" 
+	# conn = jaydebeapi.connect(jclass, conn_string) 
+	# cursor = conn.cursor() 
+	# query = """ 
+	# SELECT DISTINCT ?a WHERE {​​​​​ ?a ?b ?b . }​​​​​ """ 
+	# cursor.execute(query) # do something with the results cursor.close() conn.close()
+
+	from rdflib import Graph
+
+	g = Graph()
+	g.parse("/home/alex/repos/ltools/media/data/rfd.rdf", format="xml")
+
+	print(len(g)) # prints 2
+
+	import pprint
+	for stmt in g:
+	    pprint.pprint(stmt)
+
+	return data
+
+
 
 def xsd_data(category):
 	xml  = settings.MEDIA_ROOT+'/data/f2.xml'
