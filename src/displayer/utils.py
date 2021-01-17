@@ -48,8 +48,7 @@ def get_rfd_data():
 
         # print(v)
 
-    print(dict_data)
-    print()
+    p
 
     for s, v, p in g:
 
@@ -63,8 +62,6 @@ def get_rfd_data():
 
                 if name not in dict_data:
                     dict_data[name] = {}
-                    # print('>> ')
-                    # print(name)
 
                 dict_data[name]['category'] = category
 
@@ -75,8 +72,6 @@ def get_rfd_data():
 
                 if name not in dict_data:
                     dict_data[name] = {}
-                    # print('>> ')
-                    # print(name)
 
                 dict_data[name]['domain'] = domain
 
@@ -87,8 +82,6 @@ def get_rfd_data():
 
                 if name not in dict_data:
                     dict_data[name] = {}
-                    # print('>> ')
-                    # print(name)
 
                 dict_data[name]['based'] = based
 
